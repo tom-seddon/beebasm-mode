@@ -109,7 +109,9 @@
   (setq imenu-generic-expression
 	`(("Symbol"
 	   ,(rx bol
+		(zero-or-more space)
 		(group (sequence "."
+				 (zero-or-one (any "*" "^"))
 				 (any alphabetic "_")
 				 (zero-or-more (any alphanumeric "_")))))
 	   1)
