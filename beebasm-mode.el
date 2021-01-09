@@ -116,14 +116,23 @@
 				 (zero-or-more (any alphanumeric "_")))))
 	   1)
 	  
-	  ;; ("Macro"
-	  ;;  ,(rx bol
-	  ;; 	(zero-or-more space)
-	  ;; 	"MACRO"
-	  ;; 	(one-or-more space)
-	  ;; 	(any alphabetic "_")
-	  ;; 	(zero-or-more (any alphanumeric "_")))
-	  ;;  1)
+	  ("Macro"
+	   ,(rx bol
+	  	(zero-or-more space)
+	  	"MACRO"
+	  	(one-or-more space)
+	  	(group (any alphabetic "_")
+		       (zero-or-more (any alphanumeric "_"))))
+	   1)
+
+	  ("Value"
+	   ,(rx bol
+		(zero-or-more space)
+		(group (any alphabetic "_")
+		       (zero-or-more (any alphanumeric "_")))
+		(zero-or-more space)
+		"=")
+	   1)
 	  
 	  ))
   )
